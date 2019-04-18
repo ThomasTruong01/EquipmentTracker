@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>Buzz Fizz!</title>
+	</head>
+	<body>
+		<div id="main">
+			<button id="run">Run</button>
+			<div id="display"></div>
+		</div>
+		<script>
+			$("#run").click(function() {
+				buzzfizz();
+			});
+
+			function buzzfizz() {
+				var str = "";
+				for (var i = 1; i < 101; i++) {
+					if (i % 3 === 0 && i % 5 === 0) {
+						str += "buzzfizz <br/>";
+					} else if (i % 3 === 0) {
+						str += "fizz <br/>";
+					} else if (i % 5 === 0) {
+						str += "buzz<br/>";
+					} else {
+						str += String(i) + "<br/>";
+					}
+				}
+				$("#display").append(str);
+			}
+		</script>
+	</body>
+</html>
