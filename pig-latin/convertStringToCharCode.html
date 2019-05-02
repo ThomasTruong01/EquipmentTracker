@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Convert String to Character Code</h1>
+		<input type="text" name="String" id="str" />
+		<button type="submit" id="convert">Convert</button>
+		<div id="output"></div>
+		<script>
+			$("#convert").click(function() {
+				myStr = $("#str").val();
+				$("#output").html(convertString(myStr));
+			});
+			function convertString(str) {
+				var newStr = "";
+				for (var i = 0; i < str.length; i++) {
+					newStr += str.charCodeAt(i);
+				}
+				return newStr;
+			}
+		</script>
+	</body>
+</html>

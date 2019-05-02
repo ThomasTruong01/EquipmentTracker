@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>Pig Latin</title>
+	</head>
+	<body>
+		<input type="text" name="InsertText" id="text" />
+		<button id="convert">Convert</button>
+		<div id="output"></div>
+		<script>
+			$("#convert").click(function() {
+				var text = $("#text").val();
+				var pigText = pigLatin(text);
+				$("#output").text(pigText);
+			});
+			// var text = "pig latin";
+			function pigLatin(input) {
+				var str = input.split(" ");
+				for (var i = 0; i < str.length; i++) {
+					var first = str[i][0];
+					console.log(first);
+					if (RegExp(/[AEIOUaeiou]/).test(first)) {
+						var end = "yay";
+						str[i] += end;
+					} else {
+						var end = str[i][0].toLowerCase() + "ay";
+						if (RegExp(/[A-Z]/).test(str[i][0])) {
+							str[i] = str[i].substring(1);
+							str[i].charAt(0).toUpperCase();
+						} else {
+							str[i] = str[i].substring(1);
+						}
+						str[i] += end;
+					}
+				}
+				return str.join(" ");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Check Array if the item in the array contains letters of the string</h1>
+		<h2>My Array: <span id="myArray"></span></h2>
+		<input type="text" name="String" id="input" />
+		<button type="submit" id="run">Convert</button>
+		<div id="output"></div>
+		<script>
+			var myStr = "cat";
+			var myArr = [
+				"cat",
+				"caterpillar",
+				"whale",
+				"accurate",
+				"smile",
+				"catus",
+				"cute"
+			];
+			$("#myArray").html(myArr.join(", "));
+			$("#run").click(function() {
+				myStr = $("#input").val();
+				if (myStr != "") {
+					checkArray(myStr, myArr);
+				} else {
+					$("#output").text("Please enter text in the inputbox to search");
+				}
+			});
+			function checkArray(str, arr) {
+				arr2 = [];
+				for (var i = 0; i < arr.length; i++) {
+					var contains = false;
+					var searchStr = arr[i];
+					for (var j = 0; j < str.length; j++) {
+						var char = str[j];
+						// console.log(searchStr.indexOf(char));
+						if (searchStr.indexOf(char) === -1) {
+							contains = false;
+							break;
+						} else {
+							contains = true;
+						}
+					}
+					if (contains) {
+						arr2.push(searchStr);
+					}
+				}
+				if (arr2.length > 0) {
+					$("#output").html(arr2.join(", "));
+				} else {
+					$("#output").html("Nothing found");
+				}
+			}
+		</script>
+	</body>
+</html>

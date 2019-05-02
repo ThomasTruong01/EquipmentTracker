@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<script src="main.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css" />
+		<title>Tip Calculator</title>
+	</head>
+	<body>
+		<div id="container">
+			<header><h1>Tip Calculator</h1></header>
+			<p>How much was your bill?</p>
+			<input type="text" id="amount" placeholder="Bill Amount" onblur="updateBoxCurrency(this)" class="form-control input-lg"/>
+			<p>How was your service?</p>
+			<p>
+				<form>
+					<select name="service" id="serviceQual" class="form-control">
+						<option disabled selected value="0">-- Choose an Option --</option>
+						<option value=".3">30% - Outstanding</option>
+						<option value=".2">20% - Good</option>
+						<option value=".15">15% - It was OK</option>
+						<option value=".1">10% - Bad</option>
+						<option value=".05">5% - Terrible</option>
+					</select>
+				</form>
+			</p>
+			<p>How many people are sharing the bill?</p>
+			<input type="text" id="people" placeholder="Number of People" class="form-control input-lg" />
+			<button id="calculate" onclick="calculateTip()" type="button" class="btn btn-danger">Calculate!</button>
+			<div id="total"></div>
+		</div>
+	</body>
+</html>
